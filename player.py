@@ -31,5 +31,8 @@ class Player(CircleShape):
             self.move(-dt)
 
     def move(self,dt):
-        forward= pygame.Vector2(0,1).rotate(self.rotation)
+        forward= pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward *PLAYER_SPEED * dt
+
+    def draw(self, screen):
+        pygame.draw.polygon(screen, "white", self.triangle(), width=2)
